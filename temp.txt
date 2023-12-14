@@ -1,0 +1,12 @@
+python3 -m venv venv
+source venv/bin/activate
+pip install wheel
+pip install flask
+pip install gunicorn
+pip install mysql-connector-python
+pip install num2words
+pip install -U docxtpl
+pip install flask_login
+
+Простотак100$
+Ghjcnjnfr100$

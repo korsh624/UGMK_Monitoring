@@ -9,6 +9,11 @@ def home():
 def admin():
     return render_template('admin.html')
 
+@app.route('/testadmin')
+def testadmin():
+    return render_template('testadmin.html')
+
+
 
 if __name__=="__main__":
     app.run(debug=True)

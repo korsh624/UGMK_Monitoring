@@ -6,7 +6,7 @@ def home():
     return render_template('index.html')
 
 @app.route("/user")
-def home():
+def user():
     return render_template('user.html')
 
 @app.route('/admin')

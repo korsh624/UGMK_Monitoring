@@ -9,6 +9,11 @@ def home():
 def user():
     return render_template('user.html')
 
+@app.route("/hardinfo", methods=['GET'])
+def hardinfo():
+    data = request.args.get('station')
+    return render_template('index.html', data=data)
+
 @app.route('/admin')
 def admin():
     return render_template('admin.html')

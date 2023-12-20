@@ -1,3 +1,5 @@
+import datetime
+
 from flask import Flask, render_template, request
 app = Flask(__name__)
 from dbmodel import DBmanager
@@ -10,10 +12,7 @@ def home():
 def user():
     return render_template('user.html')
 
-@app.route("/hardinfo", methods=['GET'])
-def hardinfo():
-    data = request.args.get('station')
-    return render_template('index.html', data=data)
+
 
 @app.route('/admin')
 def admin():
@@ -42,7 +41,25 @@ def read_form():
     print(data)
     return render_template('done.html')
 
+@app.route("/getok", methods=['GET'])
+def getok():
+    data = request.args.get('station')
+    print(data)
+    if data=="off":
+        base=DBmanager(sql_host,sql_login,sql_pass,sql_name)
+        time=datetime.datetime.now()
+        base.query('''INSERT INTO monitor(time_off) VALUES(%s)''',(time,))
+    if data=="on":
+        base = DBmanager(sql_host, sql_login, sql_pass, sql_name)
+        time = str(datetime.datetime.now())
+        lastvalue='noset'
+        base.query(f'''UPDATE monitor SET time_on = {time} WHERE time_on ={lastvalue}''')
+    return render_template('getok.html', data=data)
 
+@app.route("/hardinfo", methods=['GET'])
+def hardinfo():
+    data = request.args.get('station')
+    return render_template('getok.html', data=data)
 
 if __name__=="__main__":
     app.run(debug=True)

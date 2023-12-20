@@ -1,0 +1,41 @@
+{% extends 'blank.html' %}
+{% block title %}
+Причины остановок
+{% endblock %}
+{% block body %}
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Причины остановок</h5>
+              <form action="{{ url_for('read_form')}}" method="post">
+                <div class="row mb-3">
+                  <label for="specify" class="col-sm-2 col-form-label">Указать</label>
+                  <div class="col-sm-10">
+                    <select name= "specify" class="form-select" aria-label="Default select example" id="specify">
+                      <option selected>Выбрать причину</option>
+                      {% for item in  arr%}
+                        <option value="{{item}}">{{item}}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Отправить</label>
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+{% endblock %}
+
+
+

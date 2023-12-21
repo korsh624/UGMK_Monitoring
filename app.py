@@ -6,6 +6,7 @@ from dbmodel import DBmanager
 from db import sql_name, sql_host, sql_pass,   sql_login
 @app.route("/")
 def home():
+
     return render_template('index.html')
 
 @app.route("/user")
@@ -60,6 +61,15 @@ def getok():
 def hardinfo():
     data = request.args.get('station')
     return render_template('getok.html', data=data)
+
+
+@app.route("/operator", methods=['GET'])
+def operator():
+    data = request.args.get("operator")
+    print(data)
+    return render_template('getok.html', data=data)
+
+
 
 if __name__=="__main__":
     app.run(debug=True)

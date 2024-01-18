@@ -1,0 +1,22 @@
+{% extends 'blank.html' %}
+{% block title %}
+Причины остановок
+{% endblock %}
+{% block body %}
+<form action="{{ url_for('read_btn')}}" method="post">
+<div class="contanier">
+  <div class="row">
+
+    {% for item in  arr%}
+      <div class="col-3 m-5">
+        <button class="btn btn-primary" name="spec" value="{{item}}"><h1><b> {{item}} </b></h1></button>
+      </div>
+    {% endfor %}
+
+  </div>
+</div>
+  </form>
+{% endblock %}
+
+
+

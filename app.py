@@ -6,8 +6,29 @@ from dbmodel import DBmanager
 from db import sql_name, sql_host, sql_pass,   sql_login
 @app.route("/")
 def home():
+    base = DBmanager(sql_host, sql_login, sql_pass, sql_name)
+    data = base.fetchall('''SELECT * FROM `reasons_for_stopping`''')
+    print(data)
+    arr = []
+    for el in data:
+        arr.append(el[1])
+    print(arr)
+    return render_template('spec.html', arr=arr)
 
-    return render_template('index.html')
+
+@app.route("/read_btn", methods=['POST'])
+def read_btn():
+    base = DBmanager(sql_host, sql_login, sql_pass, sql_name)
+    data = base.fetchall('''SELECT * FROM `reasons_for_stopping`''')
+    print(data)
+    arr = []
+    for el in data:
+        arr.append(el[1])
+    print(arr)
+    btn=request.form
+
+    print(btn)
+    return render_template('spec.html', arr=arr)
 
 @app.route("/user")
 def user():
@@ -35,6 +56,22 @@ def specifythereason():
         arr.append(el[1])
     print(arr)
     return render_template('testadmin.html', arr=arr)
+
+
+@app.route('/spec')
+def spec():
+    base=DBmanager(sql_host,sql_login,sql_pass,sql_name)
+    data=base.fetchall('''SELECT * FROM `reasons_for_stopping`''')
+    print(data)
+    arr=[]
+    for el in data:
+        arr.append(el[1])
+    print(arr)
+    return render_template('spec.html', arr=arr)
+
+
+
+
 
 @app.route('/read_form', methods=['POST'] )
 def read_form():

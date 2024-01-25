@@ -3,7 +3,7 @@ source venv/bin/activate
 pip install wheel
 pip install flask
 pip install gunicorn
-pip install mysql-connector-python
+pip install mysql-connector-python flask
 pip install num2words
 pip install -U docxtpl
 pip install flask_login

@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from mysql.connector import connect
 import dbmodel
 app = Flask(__name__)
-
+time=12312312
 @app.route("/")
 def home():
     return render_template('index.html')
@@ -24,7 +24,7 @@ def admin():
     bdinfo= cur.fetchall()
     print(bdinfo)
     conn.close()
-    return render_template('admin.html',bdinfo=bdinfo)
+    return render_template('admin.html',bdinfo=bdinfo,time=time)
 
 @app.route('/testadmin')
 def testadmin():

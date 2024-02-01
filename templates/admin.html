@@ -37,6 +37,9 @@
             <div class="card-body pb-0">
               <h5 class="card-title"><b>Статистика о работе оборудования</b></h5>
 
+                <input type="search">
+
+
              <div id="trafficChart" style="min-height: 400px;
               user-select: none; -webkit-tap-highlight-color:
               rgba(0, 0, 0, 0); position: relative;" class="echart"
@@ -50,7 +53,7 @@
 
 
 
-             <div  width="400" height="400"> {%for el in bdinfo%}
+             <div> {%for el in bdinfo%}
                 <div class="alert alert-info">
                   с <b>{{el[1]}}</b> до <b>{{el[2]}}</b> | причина: <b>{{el[3]}}</b>
                 </div>

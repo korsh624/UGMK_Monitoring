@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,redirect
 from mysql.connector import connect
 import dbmodel
 app = Flask(__name__)
@@ -22,6 +22,7 @@ def admin():
     cur = conn.cursor()
     cur.execute('SELECT * FROM monitor')
     bdinfo= cur.fetchall()
+    bdinfo = list(reversed(bdinfo))
     print(bdinfo)
     conn.close()
     return render_template('admin.html',bdinfo=bdinfo,time=time)
@@ -29,7 +30,6 @@ def admin():
 @app.route('/testadmin')
 def testadmin():
     return render_template('testadmin.html')
-
 
 
 if __name__=="__main__":

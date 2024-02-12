@@ -31,13 +31,20 @@
 
 </head>
 
+<header>
+    <h5 class="card-title"><b>Статистика о работе оборудования</b></h5>
+    <style>
+        header{
+        background-color: #76b5f5;
+        }
+    </style>
+</header>
+
 <body>
-<div class="card">
+
 
             <div class="card-body pb-0">
-              <h5 class="card-title"><b>Статистика о работе оборудования</b></h5>
 
-                <input type="search">
 
 
              <div id="trafficChart" style="min-height: 400px;
@@ -48,7 +55,7 @@
 
 
 
-                <b>Общее время застоев: {{time}} часов</b>
+                <h2><b>Общее время застоев: {{Alltime}}</b></h2>
 
 
 
@@ -74,7 +81,7 @@
                       left: 'center'
                     },
                     series: [{
-                      name: 'Время простоя',
+                      name: 'Количество раз',
                       type: 'pie',
                       radius: ['40%', '70%'],
                       avoidLabelOverlap: false,
@@ -93,24 +100,69 @@
                         show: false
                       },
                       data: [{
-                          value: 1048,
+                          value: {{spd}},
                           name: 'Снижение скорости на обарудовании'
                         },
                         {
-                          value: 123,
+                          value: {{sboy}},
                           name: 'Сбой настроек'
                         },
                         {
-                          value: 580,
+                          value: {{polfabrikat}},
                           name: 'Отсутствие полуфабриката'
                         },
                         {
-                          value: 484,
+                          value: {{avaria}},
                           name: 'Аварийная остановка'
                         },
                         {
-                          value: 300,
+                          value: {{drugoe}},
                           name: 'Другое'
+                        }
+                        ,
+                        {
+                          value: {{narushenie}},
+                          name: 'Нарушение правил эксплуатации'
+                        }
+                        ,
+                        {
+                          value: {{peregruz}},
+                          name: 'Перегрузка отдельных механизмов'
+                        }
+                        ,
+                        {
+                          value: {{iznos}},
+                          name: 'Износ отдельных деталей и узлов'
+                        }
+                        ,
+                        {
+                          value: {{vihod}},
+                          name: 'Выход из строя отдельных механизмов'
+                        }
+                        ,
+                        {
+                          value: {{netmaterialov}},
+                          name: 'Несвоевременная подача материалов на рабочее место'
+                        },
+                        {
+                          value: {{tehno}},
+                          name: 'Технологический простой'
+                        },
+                        {
+                          value: {{mehanicheskie}},
+                          name: 'Механический или плановый простой'
+                        },
+                        {
+                          value: {{org}},
+                          name: 'Организационный простой'
+                        },
+                        {
+                          value: {{trud}},
+                          name: 'Трудовой простой'
+                        },
+                        {
+                          value: {{smej}},
+                          name: 'Смежный простой'
                         }
                       ]
                     }]
@@ -118,8 +170,7 @@
                 });
 
               </script>
-
-
+        </div>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

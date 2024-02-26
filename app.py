@@ -42,7 +42,7 @@ def admin():
     bdinfo = cur.fetchall()
     bdinfo = list(reversed(bdinfo))
 
-    print(bdinfo)
+    # print(bdinfo)
 
     Alltime = datetime.datetime(2022, 12, 22, 22, 22, 22) - datetime.datetime(2022, 12, 22, 22, 22, 22)
 
@@ -78,7 +78,7 @@ def admin():
         else:
                 drugoe=drugoe+1
 
-    print(spd,sboy,polfabrikat,avaria,drugoe,narushenie,peregruz,iznos,vihod,netmaterialov,tehno,mehanicheskie,org,trud,smej)
+    # print(spd,sboy,polfabrikat,avaria,drugoe,narushenie,peregruz,iznos,vihod,netmaterialov,tehno,mehanicheskie,org,trud,smej)
 
     for i in range(len(bdinfo)):
         year = bdinfo[i][1][0] + bdinfo[i][1][1] + bdinfo[i][1][2] + bdinfo[i][1][3]
@@ -100,7 +100,7 @@ def admin():
         i+1
         # print(year,month,day,hour,minute)
         # print(yeart,montht,dayt,hourt,minutet)
-    print(Alltime)
+        # print(Alltime)
 
     conn.close()
     return render_template('admin.html',bdinfo=bdinfo,Alltime=Alltime,spd=spd,sboy=sboy,polfabrikat=polfabrikat,

@@ -4,11 +4,11 @@ import datetime
 import dbmodel
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return render_template('index.html')
+# @app.route("/")
+# def home():
+#     return render_template('index.html')
 
-@app.route('/admin')
+@app.route('/')
 def admin():
     spd = 0
     sboy = 0
